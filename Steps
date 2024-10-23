@@ -1,0 +1,15 @@
+# Install Python and necessary packages if not installed
+sudo apt-get update
+sudo apt-get install -y python3 python3-pip git
+
+# Clone the Sigma repository
+git clone https://github.com/SigmaHQ/sigma.git
+cd sigma
+
+# Install dependencies for Sigma
+pip3 install -r requirements.txt
+
+
+
+# Convert to an Elasticsearch query
+python3 tools/sigmac -t es-qs /path/to/detect_installutil_malicious.yml
