@@ -1,0 +1,29 @@
+title: Detect Execution of InstallUtil with Malicious Arguments
+id: a1b2c3d4-5678-9101-1121-314151617181
+status: stable
+description: Detects the execution of InstallUtil.exe with arguments often used to deploy malicious payloads
+author: [Your Name]
+date: 2024/10/23
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    Image: 'C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe'
+    CommandLine|contains:
+      - '/logfile='
+      - '/logtoconsole=false'
+      - 'C:\Users\Administrator\malicious.exe'
+  condition: selection
+fields:
+  - CommandLine
+  - ParentImage
+  - Image
+  - User
+  - ProcessGuid
+  - ProcessId
+level: high
+tags:
+  - attack.defense_evasion
+  - attack.T1218.004
+  - attack.execution
