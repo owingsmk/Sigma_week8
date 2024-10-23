@@ -1,0 +1,5 @@
+##step 1
+python3 /root/sigma-venv/lib/python3.12/site-packages/sigma/cli/convert.py --target es-qs --rule /root/Downloads/week9_sigma.yaml --files /root/Downloads/EventLog.json
+
+##step 2
+python3 /root/sigma-venv/lib/python3.12/site-packages/sigma/cli/convert.py --target es-qs /root/Downloads/week9_sigma.yaml
